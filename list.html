@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>音乐列表</title>
+  <link rel="stylesheet" href="statics/site.css">
+  <script src="statics/jquery.min.js"></script>
+</head>
+<body>
+      <table>
+          <tr>
+            <th>序号</th>
+            <th>文件名称</th>
+            <th>操作</th>
+          </tr>
+          {{#each(musicsArr)}}
+            <tr>
+              <td>{{this.id}}</td>
+              <td>{{this.name}}</td>
+              <td><a href="#" onclick="play('{{this.name}}')">播放</a></td>
+            </tr>
+          {{/each}}
+      </table>
+      <audio id="audioId" src="" autoplay></audio>
+
+
+      <script>
+        function play(musicName) {
+          var url = 'statics/musics/' + musicName
+          $('#audioId').attr('src', url)
+        }
+      </script>
+</body>
+</html>
